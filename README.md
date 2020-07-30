@@ -9,8 +9,7 @@ Steps to get up and running
 - Ansible 
 
 ### Provisioning the flask server
-- Run the server_playbook.yml with the command:  
-`ansible-playbook server_playbook.yml `
+- Run the server_playbook.yml with the command: `ansible-playbook server_playbook.yml `
 - This will download the api.py file and setup a flask server at port 5000(default) with the 3 endpoints.
 - Internal at endpoint `/internal`
 - External at endpoint `/external`
