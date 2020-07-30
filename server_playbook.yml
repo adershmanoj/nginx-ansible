@@ -4,28 +4,27 @@
   become: yes
   become_method: sudo
   tasks:
-  - name: update 
-    apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
-  - name: install pip3
-    apt: 
-      name: python3-pip
-      state: present
-    
+    - name: update
+      apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+    - name: install pip3
+      apt:
+        name: python3-pip
+        state: present
 
 # Install the app
 - hosts: localhost
   tasks:
-  - name: Download Api file using get_url
-    get_url:
-      url: 'https://slice-adershmanoj.s3.ap-south-1.amazonaws.com/api.py'
-      dest: '{{playbook_dir}}'
-  - name: install flask module 
-    pip:
-      executable: /usr/bin/pip3
-      name: flask
+    - name: Download Api file using get_url
+      get_url:
+        url: "https://slice-adershmanoj.s3.ap-south-1.amazonaws.com/api.py"
+        dest: "{{playbook_dir}}"
+    - name: install flask module
+      pip:
+        executable: /usr/bin/pip3
+        name: flask
 
 # Run the App
 - hosts: localhost
   tasks:
-  - name: Run the api script in background
-    shell: python3 api.py &
+    - name: Run the api script in background
+      shell: python3 api.py &
