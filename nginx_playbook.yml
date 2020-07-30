@@ -1,7 +1,7 @@
 ---
 - hosts: localhost
   vars:
-    hostname: http://localhost:5000/
+    hostname: http://ec2-15-207-85-236.ap-south-1.compute.amazonaws.com:5000
     allow_ip: 10.10.10.10 #Specific ip allowed to internal
     endpoints:
       cached: /cached
