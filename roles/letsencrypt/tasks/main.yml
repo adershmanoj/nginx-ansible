@@ -1,0 +1,40 @@
+---
+- name: Upgrade all apt packages
+  apt: upgrade=dist force_apt_get=yes
+
+- name: Install NGINX
+  become: yes
+  apt:
+    name: nginx
+    state: present
+
+- name: Disable NGINX Default Virtual Host
+  become: yes
+  command:
+    cmd: unlink /etc/nginx/sites-enabled/default
+  ignore_errors: yes
+
+- name: install certbot
+  apt: name=certbot state=latest
+
+- name: create letsencrypt directory
+  file: name={{ssl_directory}} state=directory
+
+- name: Install nginx site for letsencrypt requests
+  template:
+    src: nginx-http-certbot.j2
+    dest: /etc/nginx/sites-enabled/http
+
+- name: Reload nginx to activate letsencrypt site
+  service: name=nginx state=restarted
+
+- name: Create letsencrypt certificate
+  shell: certbot certonly -n --webroot -w {{ssl_directory}} -m {{ letsencrypt_email }} --agree-tos -d {{ domain_name }}
+  args:
+    creates: "{{ssl_directory}}/live/{{ domain_name }}"
+    
+- name: Add letsencrypt cronjob for cert renewal
+  cron:
+    name: letsencrypt_renewal
+    special_time: weekly
+    job: certbot --renew certonly -n --webroot -w {{ssl_directory}} -m {{ letsencrypt_email }} --agree-tos -d {{ domain_name }} && service nginx reload

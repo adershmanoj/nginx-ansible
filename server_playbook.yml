@@ -18,13 +18,16 @@
       get_url:
         url: "https://slice-adershmanoj.s3.ap-south-1.amazonaws.com/api.py"
         dest: "{{playbook_dir}}"
-    - name: install flask module
+    - name: install flask, gunicorn in a virtualenv
       pip:
-        executable: /usr/bin/pip3
-        name: flask
+        name: 
+          - flask
+          - gunicorn
+        virtualenv: "{{playbook_dir}}/flaskenv"
+        virtualenv_python: python3.6
 
-# Run the App
+# Run the App 
 - hosts: localhost
   tasks:
     - name: Run the api script in background
-      shell: python3 api.py &
+      shell: gunicorn --bind 0.0.0.0:5000 api:app &
