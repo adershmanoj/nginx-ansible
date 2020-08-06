@@ -9,8 +9,7 @@ Steps to get up and running
 - Ansible 
 
 ### Provisioning the flask server
-- Run the server_playbook.yml with the command:  
-`ansible-playbook server_playbook.yml `
+- Run the server_playbook.yml with the command: `ansible-playbook server_playbook.yml `
 - This will download the api.py file and setup a flask server at port 5000(default) with the 3 endpoints.
 - Internal at endpoint `/internal`
 - External at endpoint `/external`
@@ -18,7 +17,7 @@ Steps to get up and running
 
 ### Provisioning the Nginx proxy
 - Set the hostname of the flask server to the variable `hostname` in the playbook.
-- Run the nginx_playbook.yml with the command ``` ansible-playbook server_playbook.yml`
+- Run the nginx_playbook.yml with the command `ansible-playbook nginx_playbook.yml`
 - This will setup the reverse proxy with the following rules:
 - `/cached` will be cached at location `/var/cache/cached`
 - `/internal` will be accessible from the IP assigned to `allow_ip` variable in the playbook
