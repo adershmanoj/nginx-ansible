@@ -24,10 +24,10 @@
           - flask
           - gunicorn
         virtualenv: "{{playbook_dir}}/flaskenv"
-        virtualenv_python: python3.6
+        virtualenv_python: python3
 
 # Run the App 
 - hosts: localhost
   tasks:
     - name: Run the api script in background
-      shell: gunicorn --bind 0.0.0.0:5000 api:app &
+      shell: . {{playbook_dir}}/flaskenv/bin/activate && gunicorn --bind 0.0.0.0:5000 api:app &
