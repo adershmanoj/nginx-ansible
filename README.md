@@ -1,5 +1,5 @@
 ## Introduction
-The application server has been written in Flask and has 3 endpoints. The server has been fronted with Nginx deployed on another server and is accessible on <http://13.233.172.101>
+The application server has been written in Flask and has 3 endpoints. The server has been fronted with Nginx deployed on another server and is accessible on <https://13.232.157.91>
 
 ## Installation
 Steps to get up and running
@@ -24,9 +24,9 @@ Steps to get up and running
 - `/external` will be accessible to the public
 
 ## Demo (Hosted on AWS)
-- The flask server is deployed on [this url](http://ec2-15-207-85-236.ap-south-1.compute.amazonaws.com:5000) and is accessible only from the Nginx proxy
-- The Nginx server is deployed on [this URL](ec2-13-233-172-101.ap-south-1.compute.amazonaws.com) and IP: <http://13.233.172.101> and is publically accessible. 
+- The flask server is deployed on [this url](http://ip-172-31-12-97.ap-south-1.compute.internal:5000) and is accessible only from the Nginx proxy
+- The Nginx server is deployed on [this URL](https://ec2-13-232-157-91.ap-south-1.compute.amazonaws.com) and IP: <https://13.232.157.91/> and is publically accessible. 
 - The endpoints can be accessed as 
-    - [/external](http://13.233.172.101/external)
-    - [/internal](http://13.233.172.101/internal)
-    - [/cached](http://13.233.172.101/cached)
+    - [/external](https://13.232.157.91/external)
+    - [/internal](https://13.232.157.91/internal)
+    - [/cached](https://13.232.157.91/cached)
