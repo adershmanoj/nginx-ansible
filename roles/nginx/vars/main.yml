@@ -1,11 +1,10 @@
 ---
-ssl_directory: /etc/nginx/ssl
-domain_name: ec2-13-233-172-101.ap-south-1.compute.amazonaws.com
+domain_name: ec2-15-206-228-250.ap-south-1.compute.amazonaws.com
 proxy_cache_path: /var/cache/cached
-proxy_listen_port: 443
+proxy_listen_port: 80
 endpoints:
   cached: /cached
   internal: /internal
   external: /external
-hostname: http://ec2-15-207-85-236.ap-south-1.compute.amazonaws.com:5000
+hostname: http://ip-10-0-2-241.ap-south-1.compute.internal:5000
 allow_ip: 10.10.10.10 #Specific ip allowed to internal
