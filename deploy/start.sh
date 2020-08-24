@@ -1,2 +1,2 @@
 #!/bin/bash
-ansible-playbook /etc/ansible/codedeployserver_playbook.yml
+ansible-playbook /etc/ansible/codedeploy/server_playbook.yml
