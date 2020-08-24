@@ -18,10 +18,10 @@
 # Install the app
 - hosts: localhost
   tasks:
-    - name: Download Api file using get_url
-      get_url:
-        url: "https://slice-adershmanoj.s3.ap-south-1.amazonaws.com/api.py"
-        dest: "{{playbook_dir}}"
+    # - name: Download Api file using get_url
+    #   get_url:
+    #     url: "https://slice-adershmanoj.s3.ap-south-1.amazonaws.com/api.py"
+    #     dest: "{{playbook_dir}}"
     - name: install flask, gunicorn in a virtualenv
       pip:
         name: 
