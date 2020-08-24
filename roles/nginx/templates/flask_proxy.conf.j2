@@ -1,11 +1,7 @@
 
 proxy_cache_path  {{proxy_cache_path}} levels=1 keys_zone=cached:10m;
 server {
-  listen {{proxy_listen_port}} ssl;
-	
-	ssl_certificate         {{ ssl_directory }}/slice.pem;
-	ssl_certificate_key     {{ ssl_directory }}/slice.key;
-	ssl_trusted_certificate {{ ssl_directory }}/slice.pem;
+  listen {{proxy_listen_port}};
 
   {% for header in proxy_set_header %}
 		proxy_set_header                  {{ header }};
