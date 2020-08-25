@@ -5,10 +5,10 @@ files:
     destination: /
 hooks:
   BeforeInstall:
-    - location: before.sh
+    - location: deploy/before.sh
       timeout: 300
       runas: root
   ApplicationStart:
-    - location: start.sh
+    - location: deploy/start.sh
       timeout: 300
       runas: root
