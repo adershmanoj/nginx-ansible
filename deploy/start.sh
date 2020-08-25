@@ -1,3 +1,3 @@
 #!/bin/bash
-ls
-ansible-playbook ./server_playbook.yml
+cd /home/ubuntu/flask
+ansible-playbook server_playbook.yml
