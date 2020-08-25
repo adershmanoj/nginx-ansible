@@ -10,5 +10,4 @@ hooks:
       runas: root
   ApplicationStart:
     - location: deploy/start.sh
-      timeout: 300
       runas: root
