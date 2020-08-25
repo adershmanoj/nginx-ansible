@@ -2,13 +2,13 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /etc/ansible/codedeploy
-# hooks:
-#   BeforeInstall:
-#     - location: before.sh
-#       timeout: 300
-#       runas: root
-#   ApplicationStart:
-#     - location: start.sh
-#       timeout: 300
-#       runas: root
+    destination: /
+hooks:
+  BeforeInstall:
+    - location: before.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: start.sh
+      timeout: 300
+      runas: root
