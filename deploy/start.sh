@@ -1,2 +1,3 @@
 #!/bin/bash
-ansible-playbook server_playbook.yml
+ls
+ansible-playbook ./server_playbook.yml
