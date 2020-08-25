@@ -2,4 +2,4 @@
 # Check for ansible tools, and attempt to install
 
 apt-get update
-apt-get install ansible
+apt-get install -y ansible
